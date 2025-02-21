@@ -1,8 +1,101 @@
-.BookCard {
+$flame-color-1: #ff6b6b;
+$flame-color-2: #ff3d3d;
+$flame-color-3: #ffb42d;
+$flame-color-4: #ff6700;
+$reset-button-color: #3a86ff;
+$shadow-color: rgba(0, 0, 0, 0.1);
+
+.BookBox {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  max-width: 1000px;
+  margin: 30px auto;
+  flex-direction: column;
+
+  //bakgrund flamberande
+  background: linear-gradient(
+    45deg,
+    $flame-color-1,
+    $flame-color-2,
+    $flame-color-3,
+    $flame-color-4
+  );
+  background-size: 400% 400%;
+  animation: flameAnimation 8s ease infinite;
+
+  //animering för o få flamberingen o röra sig
+  @keyframes flameAnimation {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+}
+
+.BookCardContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+  border-radius: 15px;
+  padding: 20px;
+  width: 100%;
+  max-width: 300px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3 ease, box-shadow 0.3 ease;
+  margin-bottom: 20px;
+
+  &:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+  }
+
   img {
-    max-height: 200px;
+    width: 100%;
     height: auto;
-    max-width: 100px;
-    width: auto;
+    border-radius: 8px;
+    object-fit: cover;
+    margin-bottom: 15px;
+  }
+
+  p {
+    font-family: "Roboto" sans-serif;
+    font-size: 1rem;
+    color: #333;
+    text-align: center;
+    margin: 5px 0;
+
+    span {
+      font-weight: bold;
+      color: #ff6b6b;
+    }
+  }
+}
+
+.resetButton {
+  background-color: #ff6b6b;
+  margin-top: 20px;
+  padding: 10px 20px;
+  border-radius: 8px;
+  color: white;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  width: auto;
+
+  &:hover {
+    background-color: #ff3d3d;
+    transform: scale(1.05);
   }
 }

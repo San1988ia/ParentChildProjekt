@@ -1,14 +1,14 @@
 import "./App.scss";
-import SpelList from "./widgets/Spel/SpelList/SpelList";
-// import BookBox from "./widgets/BookBox/BookBox";
+import React from "react";
+// import SpelList from "./widgets/Spel/SpelList/SpelList";
+import BookBox from "./widgets/BookBox/BookBox";
 
 function App() {
   return (
-    <>
-      <h1>Mini Project</h1>
-      <SpelList />
-      {/* <BookBox />  */}
-    </>
+    <div className="App">
+      <h1>Mini Project Kokböcker</h1>
+      <BookBox />
+    </div>
   );
 }
 
